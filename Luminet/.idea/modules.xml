@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ProjectModuleManager">
+    <modules>
+      <module fileurl="file://$PROJECT_DIR$/Luminet.iml" filepath="$PROJECT_DIR$/Luminet.iml" />
+      <module fileurl="file://$PROJECT_DIR$/LuminetWorld/LuminetWorld.iml" filepath="$PROJECT_DIR$/LuminetWorld/LuminetWorld.iml" />
+    </modules>
+  </component>
+</project>

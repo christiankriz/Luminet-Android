@@ -1,0 +1,129 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:gravity="center_horizontal"
+        >
+
+        <TextView
+            android:id="@+id/organisation_label"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="My Organisations"
+            android:layout_marginTop="10dp"
+            android:layout_marginLeft="30dp"
+            android:layout_marginRight="30dp"
+            android:textStyle="bold"
+            />
+
+        <Button
+            android:id="@+id/communication_button"
+            android:layout_width="270dp"
+            android:layout_height="80dp"
+            android:layout_weight="1"
+            android:text="communications"
+            android:layout_marginTop="20dp"
+            android:drawableLeft="@drawable/communication_icon"
+            android:gravity="left|center_vertical"/>
+
+        <Button
+            android:id="@+id/communities_button"
+            android:layout_width="270dp"
+            android:layout_height="80dp"
+            android:layout_weight="1"
+            android:text="Communities"
+            android:layout_marginTop="20dp"
+            android:drawableLeft="@drawable/communities_icon"
+            android:gravity="left|center_vertical"/>
+
+        <Button
+            android:id="@+id/education_button"
+            android:layout_width="270dp"
+            android:layout_height="80dp"
+            android:layout_weight="1"
+            android:text="Education"
+            android:layout_marginTop="20dp"
+            android:drawableLeft="@drawable/education_icon"
+            android:gravity="left|center_vertical"/>
+
+        <Button
+            android:id="@+id/Entertainment_button"
+            android:layout_width="270dp"
+            android:layout_height="80dp"
+            android:layout_weight="1"
+            android:text="Entertainment"
+            android:layout_marginTop="20dp"
+            android:drawableLeft="@drawable/entertainment_icon"
+            android:gravity="left|center_vertical"/>
+
+        <Button
+            android:id="@+id/finances_button"
+            android:layout_width="270dp"
+            android:layout_height="80dp"
+            android:layout_weight="1"
+            android:text="Finances"
+            android:layout_marginTop="20dp"
+            android:drawableLeft="@drawable/finances_icon"
+            android:gravity="left|center_vertical"/>
+
+        <Button
+            android:id="@+id/health_beaty_button"
+            android:layout_width="270dp"
+            android:layout_height="80dp"
+            android:layout_weight="1"
+            android:text="@string/health_beauty"
+            android:layout_marginTop="20dp"
+            android:drawableLeft="@drawable/health_and_beauty_icon"
+            android:gravity="left|center_vertical"/>
+
+        <Button
+            android:id="@+id/home_and_shopping_button"
+            android:layout_width="270dp"
+            android:layout_height="80dp"
+            android:layout_weight="1"
+            android:text="@string/home_shopping"
+            android:layout_marginTop="20dp"
+            android:drawableLeft="@drawable/home_icon"
+            android:gravity="left|center_vertical"/>
+
+        <Button
+            android:id="@+id/sports_recreation_button"
+            android:layout_width="270dp"
+            android:layout_height="80dp"
+            android:layout_weight="1"
+            android:text="@string/sport_and_recreation"
+            android:layout_marginTop="20dp"
+            android:drawableLeft="@drawable/sports_recreation_icon"
+            android:gravity="left|center_vertical"/>
+
+        <Button
+            android:id="@+id/travel_and_Transport_button"
+            android:layout_width="270dp"
+            android:layout_height="80dp"
+            android:layout_weight="1"
+            android:text="@string/travel_and_transport"
+            android:layout_marginTop="20dp"
+            android:drawableLeft="@drawable/travel_and_transport_icon"
+            android:gravity="left|center_vertical"/>
+
+        <Button
+            android:id="@+id/professional_servive_button"
+            android:layout_width="270dp"
+            android:layout_height="80dp"
+            android:layout_weight="1"
+            android:text="Professional Services"
+            android:layout_marginTop="20dp"
+            android:drawableLeft="@drawable/professional_icon"
+            android:gravity="left|center_vertical"/>
+
+
+    </LinearLayout>
+
+</ScrollView>
+
