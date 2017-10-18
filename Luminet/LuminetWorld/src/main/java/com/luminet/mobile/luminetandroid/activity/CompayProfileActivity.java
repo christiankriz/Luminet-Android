@@ -42,7 +42,7 @@ public class CompayProfileActivity extends Activity {
         SpannableString content = new SpannableString(companyName);
         content.setSpan(new UnderlineSpan(), 0, content.length(), 0);
         company.setText(content);
-        messageTxt.setText(message);
+        //messageTxt.setText(message);
         Bitmap bitmap = BitmapFactory.decodeByteArray(decodedString, 0, decodedString.length);
         image.setImageBitmap(bitmap);
     }
