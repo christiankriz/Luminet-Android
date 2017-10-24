@@ -12,10 +12,9 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 
-import com.luminet.mobile.luminetandroid.LuminetActivity;
+import com.luminet.mobile.luminetandroid.activity.LuminetActivity;
 import com.luminet.mobile.luminetandroid.R;
 import com.luminet.mobile.luminetandroid.api.MuleAPI;
-import com.luminet.mobile.luminetandroid.newsFeed.DisplayNewsFeed;
 
 import java.io.IOException;
 
@@ -85,24 +84,29 @@ public class Login extends Activity {
                 try {
                     respondData = response.body().string();
                     if (response.isSuccessful()) {
-                        if(respondData.equals("\"2\"") || respondData.equals("\"3\"")){
-                            //Intent i = new Intent(getBaseContext(), UserVerification.class);
-                            //startActivity(i);
-                            sharedpreferences = getSharedPreferences(MyPREFERENCES, Context.MODE_PRIVATE);
-                            SharedPreferences.Editor editor = sharedpreferences.edit();
-                            editor.putString("useId", numberEntered);
-                            editor.putString("pWord", passwordEntered);
-                            editor.commit();
-
-                            Intent intent = new Intent(Login.this, LuminetActivity.class);
-                            intent.putExtra("userId", numberEntered);
-                            startActivity(intent);
-                        }else{
-                            String message = "Your Mobile Number or Password is incorrect. Please try again.";
-                            String title = "Error Registration";
+                        /*if(respondData.equals("\"2\"")){
+                            String message = "Please take the time to complete the registration process.";
+                            String title = "Error Login";
                             displayMessage(message, title, "error");
+
+                        }else if(respondData.equals("\"2\"") || respondData.equals("\"3\"")){ */
+                            if(respondData.equals("\"2\"") || respondData.equals("\"3\"")){
+                                sharedpreferences = getSharedPreferences(MyPREFERENCES, Context.MODE_PRIVATE);
+                                SharedPreferences.Editor editor = sharedpreferences.edit();
+                                editor.putString("useId", numberEntered);
+                                editor.putString("pWord", passwordEntered);
+                                editor.commit();
+
+                                Intent intent = new Intent(Login.this, LuminetActivity.class);
+                                intent.putExtra("userId", numberEntered);
+                                startActivity(intent);
+                            } else{
+                                String message = "Your Mobile Number or Password is incorrect. Please try again.";
+                                String title = "Error Login";
+                                displayMessage(message, title, "error");
+                            }
                         }
-                    }
+                    //}
                 } catch (IOException e) {
                     e.printStackTrace();
                 }

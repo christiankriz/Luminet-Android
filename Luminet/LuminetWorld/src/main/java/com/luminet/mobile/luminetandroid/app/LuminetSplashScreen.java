@@ -1,4 +1,4 @@
-package com.luminet.mobile.luminetandroid;
+package com.luminet.mobile.luminetandroid.app;
 
 import android.app.Activity;
 import android.content.Context;
@@ -12,14 +12,15 @@ import android.view.animation.AnimationUtils;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 
+import com.luminet.mobile.luminetandroid.R;
+import com.luminet.mobile.luminetandroid.activity.LuminetActivity;
 import com.luminet.mobile.luminetandroid.login.LoginMain;
-import com.luminet.mobile.luminetandroid.newsFeed.DisplayNewsFeed;
 
 /**
  * Created by chris on 2017/10/11.
  */
 
-public class LuminetSlashScreen extends Activity{
+public class LuminetSplashScreen extends Activity{
     public static final String MyPREFERENCES = "LumiPrefs" ;
     String userNumber;
     String password;
@@ -64,7 +65,7 @@ public class LuminetSlashScreen extends Activity{
                 password = sharedpreferences.getString("pWord", null);
 
                 if(userNumber != null && password != null){
-                    Intent intent = new Intent(LuminetSlashScreen.this, LuminetActivity.class);
+                    Intent intent = new Intent(LuminetSplashScreen.this, LuminetActivity.class);
                     intent.putExtra("userId", userNumber);
                     startActivity(intent);
 

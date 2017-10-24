@@ -4,6 +4,7 @@
 
     <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
     <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.CALL_PHONE" />
 
     <application
         android:allowBackup="true"
@@ -11,10 +12,11 @@
         android:label="@string/app_name"
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
-        android:theme="@style/AppTheme.NoActionBar">
+        android:theme="@style/AppTheme.NoActionBar"
+        android:name=".app.Luminet">
 
         <activity
-            android:name=".LuminetSlashScreen"
+            android:name=".app.LuminetSplashScreen"
             android:theme="@style/AppTheme.NoActionBar">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -29,8 +31,9 @@
         <activity android:name=".login.RegisterUser"></activity>
         <activity android:name=".login.Login"></activity>
         <activity android:name=".login.UserVerification"></activity>
-        <activity android:name=".LuminetActivity"></activity>
+        <activity android:name=".activity.LuminetActivity"></activity>
         <activity android:name=".activity.UpdatePasswordActivity"></activity>
+        <activity android:name=".activity.EnterpriseListActivity"></activity>
     </application>
 
 </manifest>

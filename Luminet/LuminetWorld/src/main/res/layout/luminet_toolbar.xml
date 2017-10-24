@@ -13,8 +13,8 @@
 
         <ImageView
             android:id="@+id/toolbar_logo"
-            android:layout_width="70dp"
-            android:layout_height="80dp"
+            android:layout_width="60dp"
+            android:layout_height="50dp"
             android:adjustViewBounds="true"
             app:srcCompat="@drawable/lumi_logo"
             android:scaleType="centerCrop"

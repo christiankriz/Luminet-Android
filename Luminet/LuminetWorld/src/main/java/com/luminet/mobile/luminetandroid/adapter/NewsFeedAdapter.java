@@ -7,6 +7,7 @@ import android.graphics.BitmapFactory;
 import android.graphics.Typeface;
 import android.graphics.drawable.BitmapDrawable;
 import android.os.Bundle;
+import android.support.v7.widget.CardView;
 import android.support.v7.widget.RecyclerView;
 import android.util.Base64;
 import android.view.LayoutInflater;
@@ -17,8 +18,11 @@ import android.widget.TextView;
 import com.luminet.mobile.luminetandroid.newsFeed.NewsFeed;
 import com.luminet.mobile.luminetandroid.R;
 import com.luminet.mobile.luminetandroid.activity.CompanyActivity;
+import com.luminet.mobile.luminetandroid.util.Util;
 
 import java.io.ByteArrayOutputStream;
+import java.text.SimpleDateFormat;
+import java.util.Date;
 import java.util.List;
 
 
@@ -46,27 +50,29 @@ public class NewsFeedAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolde
     }
 
     @Override
-    public void onBindViewHolder(RecyclerView.ViewHolder holder, final int position) {
-
+    public void onBindViewHolder(final RecyclerView.ViewHolder holder, final int position) {
         newsFeed = newsFeedList.get(position);
         newsFeedHolder = (NewsFeedHolder) holder;
+        newsFeedHolder.cardView.setTag(position);
         newsFeedHolder.companyName.setText(newsFeed.getNewsFeedHeader());
+        //String dateAsText = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss")
+        //        .format(new Date(Integer.parseInt(newsFeed.getCreatedTime()) * 1000L));
+        newsFeedHolder.dateDisplay.setText(Util.getFormattedDate(Long.parseLong(newsFeed.getCreatedTime())));
         newsFeedHolder.message.setText(newsFeed.getNewsFeedBody());
         String imageUrl = newsFeed.getImageURL();
         if(newsFeed.getImageURL().length() >10 && imageUrl.contains(",")){
             Bitmap decodedByte = getBitmap(imageUrl);
             newsFeedHolder.imageView.setImageBitmap(decodedByte);
-            newsFeedHolder.imageView.setTag(position);
         }else{
-            newsFeedHolder.imageView.setTag(position);
             Bitmap bitmap = ((BitmapDrawable)newsFeedHolder.imageView.getDrawable()).getBitmap();
             decodedString = getBytesFromBitmap(bitmap);
         }
-        newsFeedHolder.imageView.setOnClickListener(new View.OnClickListener() {
+        newsFeedHolder.cardView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                newsFeed = newsFeedList.get(Integer.parseInt(view.getTag().toString()));
-                imageView = (ImageView) view;
+                int viewPos = Integer.parseInt(view.getTag().toString());
+                newsFeed = newsFeedList.get(viewPos);
+                imageView = (ImageView) view.findViewById(R.id.company_logo);
                 Bitmap bitmap = ((BitmapDrawable)imageView.getDrawable()).getBitmap();
                 decodedString = getBytesFromBitmap(bitmap);
                 //Create the bundle
@@ -110,18 +116,20 @@ public class NewsFeedAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolde
 
 
     public class NewsFeedHolder extends RecyclerView.ViewHolder {
+        CardView cardView;
         protected TextView companyName;
         protected TextView message;
+        protected TextView dateDisplay;
         protected ImageView imageView;
 
 
         public NewsFeedHolder(View itemView) {
             super(itemView);
+            cardView =  itemView.findViewById(R.id.messages_card_view);
             companyName = itemView.findViewById(R.id.company);
-            //companyName.setEnabled(false);
             companyName.setTypeface(null, Typeface.BOLD_ITALIC);
+            dateDisplay = itemView.findViewById(R.id.date_text);
             message = itemView.findViewById(R.id.message);
-            //message.setEnabled(false);
             imageView = itemView.findViewById(R.id.company_logo);
 
         }

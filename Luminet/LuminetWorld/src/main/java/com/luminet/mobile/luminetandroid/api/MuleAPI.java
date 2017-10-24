@@ -33,6 +33,7 @@ public class MuleAPI {
     public  static String smsVerificationUrl = url + ":13001/getnodebyindex";
     public static String userLoginUrl = url + ":13001/getnodebyindex";
     public static String requestPasswordResetUrl = url + ":11051/retrievepassword";
+    public static String getEnterpriseList = url + ":11002/getallenterprises";
 
     public interface DataListener {
         void onDataSucceeded(Call call, Response response);

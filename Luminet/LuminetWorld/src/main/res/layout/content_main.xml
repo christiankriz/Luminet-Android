@@ -17,8 +17,8 @@
         app:pstsDividerColor="@color/green"
         app:pstsIndicatorColor="#be1d2c"
         app:pstsUnderlineColor="@color/blue_gray_100"
-        app:pstsTabPaddingLeftRight="14dp"
-        />
+        app:pstsTabPaddingLeftRight="8dp"
+        app:pstsShouldExpand="true"/>
 
     <android.support.v4.view.ViewPager
         android:id="@+id/viewpager"

@@ -12,11 +12,9 @@ import android.widget.Button;
 
 import com.luminet.mobile.luminetandroid.R;
 import com.luminet.mobile.luminetandroid.activity.UpdatePasswordActivity;
-import com.luminet.mobile.luminetandroid.login.Login;
 import com.luminet.mobile.luminetandroid.login.LoginMain;
-import com.luminet.mobile.luminetandroid.login.RegisterUser;
 
-import static com.luminet.mobile.luminetandroid.LuminetSlashScreen.MyPREFERENCES;
+import static com.luminet.mobile.luminetandroid.app.LuminetSplashScreen.MyPREFERENCES;
 
 /**
  * Created by chris on 2017/10/17.

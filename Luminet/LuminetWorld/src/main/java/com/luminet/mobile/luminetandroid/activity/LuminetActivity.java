@@ -1,16 +1,14 @@
-package com.luminet.mobile.luminetandroid;
+package com.luminet.mobile.luminetandroid.activity;
 
 import android.os.Bundle;
 import android.support.v4.view.ViewPager;
 import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
-import android.view.View;
 
 import com.astuetz.PagerSlidingTabStrip;
+import com.luminet.mobile.luminetandroid.R;
 import com.luminet.mobile.luminetandroid.adapter.LuminetFragmentPagerAdapter;
 import com.luminet.mobile.luminetandroid.screenViewsFragments.ConnectFeedsFragment;
-
-import static android.graphics.Color.RED;
 
 /**
  * Created by chris on 2017/10/17.

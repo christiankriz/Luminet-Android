@@ -14,7 +14,7 @@
         android:layout_width="wrap_content"
         android:layout_height="60dp"
         android:layout_weight="1"
-        android:text="Set User Name, Surname And Display"
+        android:text="Set User Name, Surname And Display Picture"
         android:drawableLeft="@drawable/no_foto_available"
         android:drawablePadding="5dp"
         android:layout_gravity="center"
