@@ -11,4 +11,6 @@
     <string name="sport_and_recreation">Sport &amp; Recreation</string>
     <string name="travel_and_transport">Travel &amp; Transport</string>
     <string name="password_hint">Password must contain at least 1 upper-case letter, 1 lower-case letter, 1 number and be at least 8 characters long.</string>
+    <string name="text_register_number">Your mobile number has been verified</string>
+    <string name="name_surname_display">Please enter your first name, last name and choose a Luminet World display name:</string>
 </resources>

@@ -4,6 +4,15 @@ import android.app.Activity;
 import android.app.Application;
 import android.app.Fragment;
 
+import com.google.gson.Gson;
+import com.google.gson.JsonElement;
+import com.google.gson.JsonParser;
+import com.luminet.mobile.luminetandroid.data.EnterpriseDTO;
+
+import org.json.JSONArray;
+import org.json.JSONException;
+import org.json.JSONObject;
+
 import io.realm.Realm;
 import io.realm.RealmBaseAdapter;
 import io.realm.RealmObject;
@@ -67,5 +76,7 @@ public class RealmController{
             //realm.clear(Book.class);
             realm.commitTransaction();
         }
+
+
 
 }

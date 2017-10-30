@@ -42,7 +42,8 @@
             android:layout_marginTop="20dp"
             android:drawableLeft="@drawable/communities_icon"
             android:gravity="left|center_vertical"
-            android:tag="2"/>
+            android:tag="2"
+            />
 
         <Button
             android:id="@+id/education_button"
@@ -64,7 +65,8 @@
             android:layout_marginTop="20dp"
             android:drawableLeft="@drawable/entertainment_icon"
             android:gravity="left|center_vertical"
-            android:tag="4"/>
+            android:tag="4"
+            />
 
         <Button
             android:id="@+id/finances_button"
@@ -75,7 +77,8 @@
             android:layout_marginTop="20dp"
             android:drawableLeft="@drawable/finances_icon"
             android:gravity="left|center_vertical"
-            android:tag="5"/>
+            android:tag="5"
+            />
 
         <Button
             android:id="@+id/health_beaty_button"
@@ -108,7 +111,8 @@
             android:layout_marginTop="20dp"
             android:drawableLeft="@drawable/sports_recreation_icon"
             android:gravity="left|center_vertical"
-            android:tag="8"/>
+            android:tag="8"
+            />
 
         <Button
             android:id="@+id/travel_and_Transport_button"
@@ -130,7 +134,8 @@
             android:layout_marginTop="20dp"
             android:drawableLeft="@drawable/professional_icon"
             android:gravity="left|center_vertical"
-            android:tag="10"/>
+            android:tag="10"
+            />
 
 
     </LinearLayout>

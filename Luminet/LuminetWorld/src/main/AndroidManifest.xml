@@ -24,6 +24,7 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+        <activity android:name=".activity.WebViewTest"></activity>
         <activity android:name=".newsFeed.DisplayNewsFeed"></activity>
         <activity android:name=".activity.CompanyActivity"></activity>
         <activity android:name=".activity.CompayProfileActivity"></activity>
@@ -34,6 +35,11 @@
         <activity android:name=".activity.LuminetActivity"></activity>
         <activity android:name=".activity.UpdatePasswordActivity"></activity>
         <activity android:name=".activity.EnterpriseListActivity"></activity>
+        <activity android:name=".activity.SetPasswordActivity"></activity>
+        <activity android:name=".activity.RegisterActivity"></activity>
+        <activity android:name=".activity.TermsAndConditionActivity"></activity>
+        <activity android:name=".activity.TermsConditionActivity"></activity>
+        <activity android:name=".activity.AboutActivity"></activity>
     </application>
 
 </manifest>

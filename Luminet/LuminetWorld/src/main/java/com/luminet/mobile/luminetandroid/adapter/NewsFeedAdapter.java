@@ -37,6 +37,7 @@ public class NewsFeedAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolde
     NewsFeed newsFeed;
     byte[] decodedString;
     ImageView imageView;
+    String dateCreated;
 
     public NewsFeedAdapter(List<NewsFeed> newsFeedList, Context ctx) {
         this.newsFeedList = newsFeedList;
@@ -57,7 +58,8 @@ public class NewsFeedAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolde
         newsFeedHolder.companyName.setText(newsFeed.getNewsFeedHeader());
         //String dateAsText = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss")
         //        .format(new Date(Integer.parseInt(newsFeed.getCreatedTime()) * 1000L));
-        newsFeedHolder.dateDisplay.setText(Util.getFormattedDate(Long.parseLong(newsFeed.getCreatedTime())));
+        dateCreated = Util.getFormattedDate(Long.parseLong(newsFeed.getCreatedTime()));
+        newsFeedHolder.dateDisplay.setText(dateCreated);
         newsFeedHolder.message.setText(newsFeed.getNewsFeedBody());
         String imageUrl = newsFeed.getImageURL();
         if(newsFeed.getImageURL().length() >10 && imageUrl.contains(",")){
@@ -80,6 +82,7 @@ public class NewsFeedAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolde
                 //Add your data from getFactualResults method to bundle
                 bundle.putString("companyName", newsFeed.getNewsFeedHeader());
                 bundle.putString("messageBody", newsFeed.getNewsFeedBody());
+                bundle.putString("date", Util.getFormattedDate(Long.parseLong(newsFeed.getCreatedTime())));
                 bundle.putByteArray("image",decodedString);
                 //Add the bundle to the intent
                 Intent i = new Intent(ctx, CompanyActivity.class);

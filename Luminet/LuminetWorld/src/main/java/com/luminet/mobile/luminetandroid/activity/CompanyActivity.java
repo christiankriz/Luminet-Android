@@ -29,23 +29,24 @@ public class CompanyActivity extends Activity{
     protected void onCreate(Bundle savedInstanceState) {
     super.onCreate(savedInstanceState);
         setContentView(R.layout.message_info);
-        //toolbar =  findViewById(R.id.toolbar);
-        //toolbar.setTitle("Message Details");
-        String companyName = null, message = null;
+        String companyName = null, message = null, dateStr = null;
         byte[] decodedString = null;
         TextView company = findViewById(R.id.company);
         company.setTypeface(null, Typeface.BOLD_ITALIC);
         TextView messageTxt = findViewById(R.id.message);
+        TextView dateLabel = findViewById(R.id.date_text);
         ImageView image = findViewById(R.id.company_logo);
         Bundle bundle = getIntent().getExtras();
         if (bundle != null) {
             companyName = bundle.getString("companyName");
             message = bundle.getString("messageBody");
+            dateStr = bundle.getString("date");
             decodedString = bundle.getByteArray("image");
         }
         SpannableString content = new SpannableString(companyName);
         content.setSpan(new UnderlineSpan(), 0, content.length(), 0);
         company.setText(content);
+        dateLabel.setText(dateStr);
         messageTxt.setText(message);
         Bitmap bitmap = BitmapFactory.decodeByteArray(decodedString, 0, decodedString.length);
         image.setImageBitmap(bitmap);
@@ -59,6 +60,7 @@ public class CompanyActivity extends Activity{
                 Bundle bundle = new Bundle();
                 //Add your data from getFactualResults method to bundle
                 bundle.putString("companyName", finalCompanyName);
+                bundle.putString("messageBody", finalMessage);
                 bundle.putString("messageBody", finalMessage);
                 bundle.putByteArray("image", finalDecodedString);
                 //Add the bundle to the intent

@@ -21,7 +21,7 @@ import io.realm.RealmResults;
 
 public class EnterpriseListActivity extends Activity {
     private RecyclerView recyclerView;
-    private LayoutInflater inflater;
+    //private LayoutInflater inflater;
     private RecyclerView.LayoutManager layoutManager;
     RealmResults<EnterpriseDTO> enterprises;
     Realm realm;
@@ -34,6 +34,7 @@ public class EnterpriseListActivity extends Activity {
         //get realm instance
         this.realm = RealmController.with(this).getRealm();
         recyclerView = (RecyclerView) findViewById(R.id.my_enterprise_recycler_view);
+        //recyclerView.setItemAnimator(new DefaultItemAnimator());
         String parentId = null;
         Bundle bundle = getIntent().getExtras();
         if (bundle != null) {
@@ -64,11 +65,10 @@ public class EnterpriseListActivity extends Activity {
         // create an empty adapter and add it to the recycler view
         enterpriseAdapter = new EnterpriseAdapter(this, enterprises);
         recyclerView.setAdapter(enterpriseAdapter);
-        recyclerView.setItemAnimator(new DefaultItemAnimator());
-
         RealmEnterpriseAdapter realnAdapter = new RealmEnterpriseAdapter(this.getApplicationContext(), enterprises, true);
         enterpriseAdapter.setRealmAdapter(realnAdapter);
         enterpriseAdapter.notifyDataSetChanged();
+        //recyclerView.bringChildToFront(layoutManager);
     }
 
 }

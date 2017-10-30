@@ -16,6 +16,7 @@ import android.widget.EditText;
 import android.widget.TextView;
 
 import com.luminet.mobile.luminetandroid.R;
+import com.luminet.mobile.luminetandroid.activity.SetPasswordActivity;
 import com.luminet.mobile.luminetandroid.api.MuleAPI;
 import java.io.IOException;
 import okhttp3.Call;
@@ -40,6 +41,7 @@ public class UserVerification extends Activity {
     Button resendCode;
     String userId;
     SharedPreferences sharedpreferences;
+    String codeNumberString;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -71,7 +73,7 @@ public class UserVerification extends Activity {
     }
 
     private  void verifyCode(View v){
-        final String codeNumberString = codeNumberEdit.getText().toString();
+        codeNumberString = codeNumberEdit.getText().toString();
         FormBody.Builder formBuilder = new FormBody.Builder()
                 .add("cell", userId)
                 .add("password", codeNumberString);
@@ -96,7 +98,7 @@ public class UserVerification extends Activity {
                             editor.putString("userId", userId);
                             editor.putString("pWord", codeNumberString);
                             editor.commit();
-                            String message = "You have been registered successfully, you can login";
+                            String message = "You have been registered successfully, you can reset password";
                             String title = "Success Registration";
                             displayMessage(message, title, "");
                         }else{
@@ -138,8 +140,10 @@ public class UserVerification extends Activity {
                         .setPositiveButton(android.R.string.yes, new DialogInterface.OnClickListener() {
                             public void onClick(DialogInterface dialog, int which) {
                                 if(title.equals("Success Registration")){
-                                    Intent i = new Intent(getBaseContext(), LoginMain.class);
-                                    startActivity(i);
+                                    Intent intent = new Intent(getBaseContext(), SetPasswordActivity.class);
+                                    intent.putExtra("userId", userId);
+                                    intent.putExtra("pWord", codeNumberString);
+                                    startActivity(intent);
                                 }
                             }
                         })

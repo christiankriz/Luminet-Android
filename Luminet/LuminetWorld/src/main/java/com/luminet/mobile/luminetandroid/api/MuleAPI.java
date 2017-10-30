@@ -34,6 +34,7 @@ public class MuleAPI {
     public static String userLoginUrl = url + ":13001/getnodebyindex";
     public static String requestPasswordResetUrl = url + ":11051/retrievepassword";
     public static String getEnterpriseList = url + ":11002/getallenterprises";
+    public static String setPasswordUrl = url + ":11101/addnodeproperties";
 
     public interface DataListener {
         void onDataSucceeded(Call call, Response response);

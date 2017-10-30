@@ -7,9 +7,18 @@ import android.os.Build;
 import android.support.v7.app.AlertDialog;
 import android.util.Log;
 
+import com.google.gson.Gson;
+import com.google.gson.JsonElement;
+import com.google.gson.JsonParser;
 import com.luminet.mobile.luminetandroid.api.MuleAPI;
 import com.luminet.mobile.luminetandroid.data.EnterpriseDTO;
 import com.luminet.mobile.luminetandroid.login.LoginMain;
+import com.luminet.mobile.luminetandroid.realm.RealmController;
+
+import org.json.JSONArray;
+import org.json.JSONException;
+import org.json.JSONObject;
+
 import java.io.IOException;
 
 import io.realm.Realm;
@@ -36,8 +45,7 @@ public class Luminet extends Application {
     @Override
     public void onCreate() {
         super.onCreate();
-
-        //Config Realm for the application
+       //Config Realm for the application
         RealmConfiguration realmConfiguration = new RealmConfiguration.Builder(this)
                 .name(Realm.DEFAULT_REALM_NAME)
                 .schemaVersion(0)
@@ -45,12 +53,7 @@ public class Luminet extends Application {
                 .build();
         Realm.setDefaultConfiguration(realmConfiguration);
         Realm realm = Realm.getDefaultInstance();
-        Table table = realm.getTable(EnterpriseDTO.class);
-        if(table != null){
-            //TO-DO
-        }else{
-            getEnterprises();
-        }
+        getEnterprises();
         Intent intent = new Intent(Luminet.this, LuminetSplashScreen.class);
         intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
         startActivity(intent);
@@ -77,11 +80,7 @@ public class Luminet extends Application {
                     String jsonData = response.body().string();
                     Log.v(TAG, "Check Log " + jsonData);
                     if (response.isSuccessful()) {
-                        Realm realm = Realm.getDefaultInstance();
-                        realm.beginTransaction();
-                        realm.createAllFromJson(EnterpriseDTO.class, jsonData);
-                        realm.commitTransaction();
-
+                       addEenterprise(jsonData);
                     } else {
                         String message = "Could not get Enterprise List";
                         String title = "Data Download";
@@ -92,6 +91,31 @@ public class Luminet extends Application {
                 }
             }
         });
+    }
+
+    public void addEenterprise(String jsonString){
+        Realm realm = Realm.getDefaultInstance();
+        realm.beginTransaction();
+        String id;
+        JSONArray array = null;
+        try {
+            array = new JSONArray(jsonString);
+            for (int i = 0; i < array.length(); i++) {
+                JSONObject row = array.getJSONObject(i);
+                JsonParser parser = new JsonParser();
+                JsonElement mJson =  parser.parse(String.valueOf(row));
+                Gson gson = new Gson();
+                EnterpriseDTO object = gson.fromJson(mJson, EnterpriseDTO.class);
+                id = object.getId();
+                if (realm.where(EnterpriseDTO.class).equalTo("id", id).count() == 0) {
+                    // there are no object with this `Id`
+                    realm.copyToRealmOrUpdate(object);
+                }
+            }
+        } catch (JSONException e) {
+            e.printStackTrace();
+        }
+        realm.commitTransaction();
     }
 
     private void displayMessage(final String message, final String title, final String response) {
